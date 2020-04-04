@@ -38,7 +38,14 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
-  // Solution code here...
+  let validator = /\b[A-J]\w+/g
+  let arr2 = [];
+  arr.forEach(val => {
+    if (validator.test(val)){
+      arr2.push(val)
+    }
+  });
+  return arr2
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -54,7 +61,15 @@ Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
 const matchMonth = (input) => {
-  // Solution code here...
+  let validator2 = /\boct\b/gi
+  let validator3 = /\w+r\b/g
+  if (input.length == 3){
+    return validator2.test(input);
+  }else if (input.length == 7){
+    return  validator3.test(input);
+  }else{
+    return false
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -68,7 +83,15 @@ The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "
 ------------------------------------------------------------------------------------------------ */
 
 const noPunctuation = str => {
-  // Solution code here...
+  let vali = /(\w+\s)+/g
+  let spaceWord = str.match(vali)
+  let stringmatch = spaceWord.toString();
+  let splitArr = stringmatch.split(' ')
+  splitArr.pop();
+  splitArr.forEach(val =>{
+    val = val + ' '
+  })
+  return splitArr
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -84,7 +107,9 @@ For example, 'Welcome to Code 301!' will return 'W_lc_m_ t_ C_d_ 301!'.
 ------------------------------------------------------------------------------------------------ */
 
 let hangman = (str) => {
-  // Solution code here...
+  let valid = /[a,o,e,u,i]/gi
+  let repled = str.replace(valid, '_')
+  return repled
 };
 
 /* ------------------------------------------------------------------------------------------------

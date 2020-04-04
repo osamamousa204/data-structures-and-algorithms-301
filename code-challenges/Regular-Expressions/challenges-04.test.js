@@ -83,15 +83,16 @@ The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "
 ------------------------------------------------------------------------------------------------ */
 
 const noPunctuation = str => {
-  let vali = /(\w+\s)+/g
+  let vali = /(\w+\s\b)/gi
   let spaceWord = str.match(vali)
-  let stringmatch = spaceWord.toString();
-  let splitArr = stringmatch.split(' ')
-  splitArr.pop();
-  splitArr.forEach(val =>{
-    val = val + ' '
-  })
-  return splitArr
+  // let stringmatch = spaceWord.toString();
+  // let splitArr = stringmatch.split(' ')
+  // splitArr.pop();
+  // let arrss = []
+  // splitArr.forEach((val, idx) =>{
+  //   arrss[idx] = val + ' '
+  // })
+  return spaceWord
 };
 
 /* ------------------------------------------------------------------------------------------------
